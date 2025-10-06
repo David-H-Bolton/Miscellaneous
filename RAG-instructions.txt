@@ -1,0 +1,51 @@
+Setting up a simple RAG system
+==============================
+
+1. Install Requirements
+
+First, make sure you have Python 3.9+ installed. Then open a terminal (or Anaconda prompt if you use Anaconda) and install:
+
+pip install langchain faiss-cpu sentence-transformers ollama
+
+🔹 langchain = framework for RAG pipelines
+🔹 faiss-cpu = local vector database (stores embeddings)
+🔹 sentence-transformers = local embedding model (no internet needed once downloaded)
+🔹 ollama = run local LLMs (like LLaMA 2, Mistral, Gemma)
+
+2. Install Ollama (Local LLM Runner)
+
+Go to https://ollama.ai
+ and install Ollama for your OS (Mac, Windows, Linux).
+
+Pull a model, e.g. Mistral (lightweight but strong):
+
+ollama pull mistral
+
+
+You can also pull llama2, gemma, or codellama depending on your hardware.
+
+3. Create Example Data
+
+Make a simple text file my_docs.txt in your project folder. Example content:
+
+4. Run the RAG Script
+
+In your terminal:
+
+python rag_demo.py
+
+
+Now ask questions like:
+
+Ask me something (or type 'exit'): What does RAG mean?
+Answer: RAG stands for Retrieval-Augmented Generation, which combines information retrieval with language model generation.
+
+5. Expand to Real Data
+
+Once this works, you can:
+
+Load PDFs, Word docs, or CSVs with PyPDFLoader / UnstructuredLoader (LangChain has loaders for many formats).
+
+Store thousands of documents in FAISS and still query them quickly.
+
+Swap in a larger model (like llama2) if your PC can handle it.
